@@ -8,5 +8,5 @@ NICHT für gewerbliche Zwecke eingesetzt werden.
 Dieses Projekt konnte dank dem MakerSpace Heidelberg umgesetzt werden.
 
 
-(c) 06.07.2016, Heidelberg, Deutschland
+(c) 06.07.2016, Heidelberg, Deutschland. Paul Goldschmidt and L
 ---------------------------------------------
