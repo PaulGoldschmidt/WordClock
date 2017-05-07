@@ -157,3 +157,4 @@ ISR(TIMER2_OVF_vect);
 */
 void int0handler();
 void old_loop();
+void getSignal();

@@ -228,6 +228,18 @@ void int0handler() {
   DCFSignalState = digitalRead(DCF77PIN);
 }
 
+void getSignal() {
+  bool signalFound = false;
+  while (signalFound == false)
+  {
+    old_loop();
+    if (year != 0) {
+      Serial.println(year);
+      signalFound = true;
+    }
+  }
+}
+
 // original Loop Schleife
 void old_loop() {
   if (ss != previousSecond) {

@@ -33,13 +33,17 @@
 #include "RTCModule.h";
 #include "outputLED.h";
 #include "dcf77.h";
+//#include "time.h";
 
 void setup(void) {
   // We need to start serial here again,
   // for Arduino 007 (new serial code)
   Serial.begin(9600);
+  // init RTC
   Wire.begin(); //Kommunikation über die Wire.h bibliothek beginnen.
+  // init DCF77
   DCF77Init();
+  // init LEDOutput
   pinMode(ES, OUTPUT);
   pinMode(IST, OUTPUT);
   pinMode(WAR, OUTPUT);
@@ -66,7 +70,9 @@ void setup(void) {
   pinMode(ELF, OUTPUT);
   pinMode(ZWOELF, OUTPUT);
   pinMode(UHR, OUTPUT);
-  //to do: setup von RTCModule einfügen
+  getSignal();
+  Serial.println(hh);
+  Serial.println(mm);
 }
 
 void loop(void) {
