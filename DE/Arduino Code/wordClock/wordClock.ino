@@ -70,9 +70,14 @@ void setup(void) {
   pinMode(ELF, OUTPUT);
   pinMode(ZWOELF, OUTPUT);
   pinMode(UHR, OUTPUT);
-  getSignal();
-  Serial.println(hh);
-  Serial.println(mm);
+//  getSignal();
+//  Serial.println(hh);
+//  Serial.println(mm);
+//  Serial.println(ss);
+  rtcReadTime();
+  Serial.println(stunde);
+  Serial.println(minute);
+  Serial.println(sekunde);
 }
 
 void loop(void) {
@@ -80,5 +85,6 @@ void loop(void) {
   // -------------------------------------------------------------------------------------------------
   //                                       WORDCLOCK VARIABLES
   // -------------------------------------------------------------------------------------------------
-
+  setLED(stunde, minute);
+  delay(1000);
 }
