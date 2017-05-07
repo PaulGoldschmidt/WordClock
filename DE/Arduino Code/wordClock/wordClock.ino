@@ -33,7 +33,19 @@
 #include "RTCModule.h";
 #include "outputLED.h";
 #include "dcf77.h";
-//#include "time.h";
+
+
+void setRealClock() {
+  getSignal();
+  Serial.println(hh);
+  Serial.println(mm);
+  Serial.println(ss);
+  rtcWriteTime(year, mon, day, hh, mm, ss);
+  rtcReadTime();
+  Serial.println(stunde);
+  Serial.println(minute);
+  Serial.println(sekunde);
+}
 
 void setup(void) {
   // We need to start serial here again,
@@ -70,14 +82,7 @@ void setup(void) {
   pinMode(ELF, OUTPUT);
   pinMode(ZWOELF, OUTPUT);
   pinMode(UHR, OUTPUT);
-//  getSignal();
-//  Serial.println(hh);
-//  Serial.println(mm);
-//  Serial.println(ss);
-  rtcReadTime();
-  Serial.println(stunde);
-  Serial.println(minute);
-  Serial.println(sekunde);
+  setRealClock();
 }
 
 void loop(void) {
@@ -85,6 +90,15 @@ void loop(void) {
   // -------------------------------------------------------------------------------------------------
   //                                       WORDCLOCK VARIABLES
   // -------------------------------------------------------------------------------------------------
-  setLED(stunde, minute);
+  if ((stunde >23) || (stunde<6)) 
+  { // Nachtschaltung
+    OFF();
+  }
+  else
+  {
+    setLED(stunde, minute);
+  }
+  if ((stunde == 5) && (minute==0)) setRealClock();
+  rtcReadTime();
   delay(1000);
 }
