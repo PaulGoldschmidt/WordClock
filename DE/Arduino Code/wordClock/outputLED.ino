@@ -1,3 +1,40 @@
+void initLED() {
+  pinMode(ES, OUTPUT);
+  pinMode(IST, OUTPUT);
+  pinMode(WAR, OUTPUT);
+  pinMode(JETZT, OUTPUT);
+  pinMode(GLEICH, OUTPUT);
+  pinMode(ZEHN_1, OUTPUT);
+  pinMode(ZWANZIG, OUTPUT);
+  pinMode(VIERTEL, OUTPUT);
+  pinMode(HALB, OUTPUT);
+  pinMode(FUENF_1, OUTPUT);
+  pinMode(VOR, OUTPUT);
+  pinMode(NACH, OUTPUT);
+  pinMode(EIN, OUTPUT);
+  pinMode(S, OUTPUT);
+  pinMode(ZWEI, OUTPUT);
+  pinMode(DREI, OUTPUT);
+  pinMode(VIER, OUTPUT);
+  pinMode(FUENF_2, OUTPUT);
+  pinMode(SECHS, OUTPUT);
+  pinMode(SIEBEN, OUTPUT);
+  pinMode(ACHT, OUTPUT);
+  pinMode(NEUN, OUTPUT);
+  pinMode(ZEHN_2, OUTPUT);
+  pinMode(ELF, OUTPUT);
+  pinMode(ZWOELF, OUTPUT);
+  pinMode(UHR, OUTPUT);
+  analogWrite(MOSFET, MOSFET_Max);
+  for (int i = 22; i < 48; i++)
+  {
+    Serial.println(i);
+    digitalWrite(i, HIGH);
+    delay(500);
+    digitalWrite(i, LOW);
+  }
+}
+
 void OFF() {
   delay(50);
   digitalWrite(ES, HIGH);
@@ -27,7 +64,7 @@ void OFF() {
   digitalWrite(ZWOELF, LOW);
   digitalWrite(UHR, LOW);
   analogWrite(MOSFET, MOSFET_Max);
-  return;
+
 }
 
 void setLED(int localStunde, int localMin)
@@ -51,6 +88,7 @@ void setLED(int localStunde, int localMin)
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(FUENF_1, HIGH);
+    digitalWrite(NACH, HIGH);
   }
   else if (localMin == 5)
   {
@@ -72,7 +110,7 @@ void setLED(int localStunde, int localMin)
     OFF();
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
-    digitalWrite(ZEHN_2, HIGH);
+    digitalWrite(ZEHN_1, HIGH);
     digitalWrite(NACH, HIGH);
   }
   else if (localMin == 10)
@@ -260,51 +298,135 @@ void setLED(int localStunde, int localMin)
   //
   if ((localStunde == 1) || (localStunde == 13))
   {
-    digitalWrite(EIN, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(ZWEI, HIGH);
+    }
+    else
+    {
+      digitalWrite(EIN, HIGH);
+    }
   }
   else if ((localStunde == 2) || (localStunde == 14))
   {
-    digitalWrite(ZWEI, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(DREI, HIGH);
+    }
+    else
+    {
+      digitalWrite(ZWEI, HIGH);
+    }
   }
   else if ((localStunde == 3) || (localStunde == 15))
   {
-    digitalWrite(DREI, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(VIER, HIGH);
+    }
+    else
+    {
+      digitalWrite(DREI, HIGH);
+    }
   }
   else if ((localStunde == 4) || (localStunde == 16))
   {
-    digitalWrite(VIER, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(FUENF_2, HIGH);
+    }
+    else
+    {
+      digitalWrite(VIER, HIGH);
+    }
   }
   else if ((localStunde == 5) || (localStunde == 17))
   {
-    digitalWrite(FUENF_2, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(SECHS, HIGH);
+    }
+    else
+    {
+      digitalWrite(FUENF_2, HIGH);
+    }
   }
   else if ((localStunde == 6) || (localStunde == 18))
   {
-    digitalWrite(SECHS, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(SIEBEN, HIGH);
+    }
+    else
+    {
+      digitalWrite(SECHS, HIGH);
+    }
   }
   else if ((localStunde == 7) || (localStunde == 19))
   {
-    digitalWrite(SIEBEN, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(ACHT, HIGH);
+    }
+    else
+    {
+      digitalWrite(SIEBEN, HIGH);
+    }
   }
   else if ((localStunde == 8) || (localStunde == 20))
   {
-    digitalWrite(ACHT, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(NEUN, HIGH);
+    }
+    else
+    {
+      digitalWrite(ACHT, HIGH);
+    }
   }
   else if ((localStunde == 9) || (localStunde == 21))
   {
-    digitalWrite(NEUN, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(ZEHN_2, HIGH);
+    }
+    else
+    {
+      digitalWrite(NEUN, HIGH);
+    }
   }
   else if ((localStunde == 10) || (localStunde == 22))
   {
-    digitalWrite(ZEHN_2, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(ELF, HIGH);
+    }
+    else
+    {
+      digitalWrite(ZEHN_2, HIGH);
+    }
   }
   else if ((localStunde == 11) || (localStunde == 23))
   {
-    digitalWrite(ELF, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(ZWOELF, HIGH);
+    }
+    else
+    {
+      digitalWrite(ELF, HIGH);
+    }
   }
   else if ((localStunde == 12) || (localStunde == 0))
   {
-    digitalWrite(ZWOELF, HIGH);
+    if (localMin >= 25)
+    {
+      digitalWrite(EIN, HIGH);
+    }
+    else
+    {
+      digitalWrite(ZWOELF, HIGH);
+    }
   }
 }
 

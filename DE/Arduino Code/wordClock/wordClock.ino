@@ -52,35 +52,9 @@ void setup(void) {
   Serial.begin(9600);
   // init RTC
   Wire.begin(); //Kommunikation über die Wire.h bibliothek beginnen.
+  initLED();
   // init DCF77
-  DCF77Init();
-  // init LEDOutput
-  pinMode(ES, OUTPUT);
-  pinMode(IST, OUTPUT);
-  pinMode(WAR, OUTPUT);
-  pinMode(JETZT, OUTPUT);
-  pinMode(GLEICH, OUTPUT);
-  pinMode(ZEHN_1, OUTPUT);
-  pinMode(ZWANZIG, OUTPUT);
-  pinMode(VIERTEL, OUTPUT);
-  pinMode(HALB, OUTPUT);
-  pinMode(FUENF_1, OUTPUT);
-  pinMode(VOR, OUTPUT);
-  pinMode(NACH, OUTPUT);
-  pinMode(EIN, OUTPUT);
-  pinMode(S, OUTPUT);
-  pinMode(ZWEI, OUTPUT);
-  pinMode(DREI, OUTPUT);
-  pinMode(VIER, OUTPUT);
-  pinMode(FUENF_2, OUTPUT);
-  pinMode(SECHS, OUTPUT);
-  pinMode(SIEBEN, OUTPUT);
-  pinMode(ACHT, OUTPUT);
-  pinMode(NEUN, OUTPUT);
-  pinMode(ZEHN_2, OUTPUT);
-  pinMode(ELF, OUTPUT);
-  pinMode(ZWOELF, OUTPUT);
-  pinMode(UHR, OUTPUT);
+  DCF77Init(); 
   setRealClock();
 }
 
@@ -98,7 +72,7 @@ void loop(void) {
   {
     setLED(stunde, minute);
   }
-  if ((stunde == 5) && (minute==0)) {
+  if ((stunde == 4) && (minute==0)) {
     Serial.println("suche DCF77 Signal und setze RTC Uhr");
     setRealClock();
   }

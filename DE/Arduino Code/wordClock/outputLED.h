@@ -1,63 +1,71 @@
 //------------------------------------------------------------------------------------------
+//                                     MOSFET
+//------------------------------------------------------------------------------------------
+//
+// Where is the MOSFET connected to?
+int MOSFET = 7;
+
+// Please define the value of the max. brightniss at 100 %. Number beetween 1 and 255.
+int MOSFET_Max = 200;
+//------------------------------------------------------------------------------------------
 //                                 WordClock_Words
 //------------------------------------------------------------------------------------------
 //
 // Word "ES"
-int ES = 22;
+const int ES = 22;
 // Word "IST"
-int IST = 23;
+const int IST = 23;
 // Word "WAR"
-int WAR = 24;
+const int WAR = 24;
 // Word "JETZT"
-int JETZT = 25;
+const int JETZT = 25;
 // Word "GLEICH"
-int GLEICH = 26;
+const int GLEICH = 26;
 // Word "ZEHN"
-int ZEHN_1 = 27;
+const int ZEHN_1 = 27;
 // Word "ZWANZIG"
-int ZWANZIG = 28;
+const int ZWANZIG = 28;
 // Word "VIERTEL"
-int VIERTEL = 29;
+const int VIERTEL = 29;
 // Word "HALB"
-int HALB = 30;
+const int HALB = 30;
 // Word "FÜNF"
-int FUENF_1 = 31;
+const int FUENF_1 = 31;
 // Word "VOR"
-int VOR = 32;
+const int VOR = 32;
 // Word "NACH"
-int NACH = 33;
+const int NACH = 33;
 // Word "EIN"
-int EIN = 34;
+const int EIN = 34;
 // Word "S"
-int S = 35;
+const int S = 35;
 // Word "ZWEI"
-int ZWEI = 36;
+const int ZWEI = 36;
 // Word "DREI"
-int DREI = 37;
+const int DREI = 37;
 // Word "VIER"
-int VIER = 38;
+const int VIER = 38;
 // Word "FÜNF"
-int FUENF_2 = 39;
+const int FUENF_2 = 39;
 // Word "SECHS"
-int SECHS = 40;
+const int SECHS = 40;
 // Word "SIEBEN"
-int SIEBEN = 41;
+const int SIEBEN = 41;
 // Word "ACHT"
-int ACHT = 42;
+const int ACHT = 42;
 // Word "NEUN"
-int NEUN = 43;
+const int NEUN = 43;
 // Word "ZEHN"
-int ZEHN_2 = 44;
+const int ZEHN_2 = 44;
 // Word "ELF"
-int ELF = 45;
+const int ELF = 45;
 // Word "ZWÖLF"
-int ZWOELF = 46;
+const int ZWOELF = 46;
 // Word "UHR"
-int UHR = 47;
+const int UHR = 47;
 //
 // Creating "THE DEATH FUNCTION": This function will turn off all LEDs at the same time.
 //
 void OFF();
-
 void setLED(int stunde, int minute);
-
+void initLED();
