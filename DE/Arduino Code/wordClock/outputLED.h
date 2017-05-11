@@ -1,16 +1,29 @@
+
 //------------------------------------------------------------------------------------------
-//                                     MOSFET
+//                                    MOSFET
 //------------------------------------------------------------------------------------------
-//
+
 // Where is the MOSFET connected to?
-int MOSFET = 7;
+const int MOSFET = 7;
 
 // Please define the value of the max. brightniss at 100 %. Number beetween 1 and 255.
-int MOSFET_Max = 200;
+const int MOSFET_Max = 200;
+
 //------------------------------------------------------------------------------------------
-//                                 WordClock_Words
+//                              Night-power shutdown
 //------------------------------------------------------------------------------------------
-//
+
+// When should the WordClock shutdown?
+const int NightBegin = 23;
+// When should turn the WordClock on again?
+const int NightEnd = 5; 
+// Define the brigtniss at night between 0 (=Off) and 255 (=Max. Brightniss)
+const int NightBrightniss = 0;
+
+//------------------------------------------------------------------------------------------
+//                               WordClock_Word Pins
+//------------------------------------------------------------------------------------------
+
 // Word "ES"
 const int ES = 22;
 // Word "IST"
@@ -64,8 +77,9 @@ const int ZWOELF = 46;
 // Word "UHR"
 const int UHR = 47;
 //
-// Creating "THE DEATH FUNCTION": This function will turn off all LEDs at the same time.
+// Variablen einbinden
 //
-void OFF();
+void AUS();
+void Nacht();
 void setLED(int stunde, int minute);
 void initLED();

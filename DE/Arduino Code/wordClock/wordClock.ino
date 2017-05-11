@@ -16,6 +16,7 @@
         MOSFET Type:              IRLZ44N
    Fuse rated to:                 1.5 Ampere
    Voltage:                       5 Volt DC
+   LED Type:                      Single LED, connected via one transitor each word to 3.3 Volt.
 
 
    GERMAN VERSION
@@ -64,9 +65,9 @@ void loop(void) {
   //                                       WORDCLOCK VARIABLES
   // -------------------------------------------------------------------------------------------------
   rtcReadTime();
-  if ((stunde >23) || (stunde<6)) 
+  if ((stunde > NightBegin) || (stunde < NightEnd)) 
   { // Nachtschaltung
-    OFF();
+    NACHT();
   }
   else
   {
@@ -78,3 +79,4 @@ void loop(void) {
   }
   delay(30000);
 }
+void outputLED();

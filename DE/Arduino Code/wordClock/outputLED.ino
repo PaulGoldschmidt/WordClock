@@ -34,8 +34,11 @@ void initLED() {
     digitalWrite(i, LOW);
   }
 }
-
-void OFF() {
+// Nachtabschaltung, MOSFET Komplett Aus
+void NACHT() {
+  analogWrite(MOSFET, NightBrightniss);
+}
+void AUS() {
   delay(50);
   digitalWrite(ES, HIGH);
   digitalWrite(IST, LOW);
@@ -64,27 +67,26 @@ void OFF() {
   digitalWrite(ZWOELF, LOW);
   digitalWrite(UHR, LOW);
   analogWrite(MOSFET, MOSFET_Max);
-
 }
 
 void setLED(int localStunde, int localMin)
 {
   if (localMin == 0)
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(UHR, HIGH);
   }
   else if ((localMin > 0) && (localMin <= 3))
   {
-    OFF();
+    AUS();
     digitalWrite(WAR, HIGH);
     digitalWrite(UHR, HIGH);
   }
   else if ((localMin > 3) && (localMin < 5))
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(FUENF_1, HIGH);
@@ -92,7 +94,7 @@ void setLED(int localStunde, int localMin)
   }
   else if (localMin == 5)
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(FUENF_1, HIGH);
@@ -100,14 +102,14 @@ void setLED(int localStunde, int localMin)
   }
   else if ((localMin > 5) && (localMin <= 7))
   {
-    OFF();
+    AUS();
     digitalWrite(WAR, HIGH);
     digitalWrite(FUENF_1, HIGH);
     digitalWrite(NACH, HIGH);
   }
   else if ((localMin > 7) && (localMin < 10))
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(ZEHN_1, HIGH);
@@ -115,7 +117,7 @@ void setLED(int localStunde, int localMin)
   }
   else if (localMin == 10)
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(ZEHN_1, HIGH);
@@ -123,14 +125,14 @@ void setLED(int localStunde, int localMin)
   }
   else if ((localMin > 10) && (localMin <= 12))
   {
-    OFF();
+    AUS();
     digitalWrite(WAR, HIGH);
     digitalWrite(ZEHN_1, HIGH);
     digitalWrite(NACH, HIGH);
   }
   else if ((localMin > 12) && (localMin < 15))
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(VIERTEL, HIGH);
@@ -138,7 +140,7 @@ void setLED(int localStunde, int localMin)
   }
   else if (localMin == 15)
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(VIERTEL, HIGH);
@@ -146,14 +148,14 @@ void setLED(int localStunde, int localMin)
   }
   else if ((localMin > 15) && (localMin <= 17))
   {
-    OFF();
+    AUS();
     digitalWrite(WAR, HIGH);
     digitalWrite(VIERTEL, HIGH);
     digitalWrite(NACH, HIGH);
   }
   else if ((localMin > 17) && (localMin < 20))
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(ZWANZIG, HIGH);
@@ -161,7 +163,7 @@ void setLED(int localStunde, int localMin)
   }
   else if (localMin == 20)
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(ZWANZIG, HIGH);
@@ -169,34 +171,34 @@ void setLED(int localStunde, int localMin)
   }
   else if ((localMin > 20) && (localMin < 25))
   {
-    OFF();
+    AUS();
     digitalWrite(WAR, HIGH);
     digitalWrite(ZWANZIG, HIGH);
     digitalWrite(NACH, HIGH);
   }
   else if ((localMin >= 25) && (localMin < 30))
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(HALB, HIGH);
   }
   else if (localMin == 30)
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(HALB, HIGH);
   }
   else if ((localMin > 30) && (localMin <= 34))
   {
-    OFF();
+    AUS();
     digitalWrite(WAR, HIGH);
     digitalWrite(HALB, HIGH);
   }
   else if ((localMin >= 35) && (localMin < 40))
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(ZWANZIG, HIGH);
@@ -204,7 +206,7 @@ void setLED(int localStunde, int localMin)
   }
   else if (localMin == 40)
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(ZWANZIG, HIGH);
@@ -212,14 +214,14 @@ void setLED(int localStunde, int localMin)
   }
   else if ((localMin > 40) && (localMin <= 42))
   {
-    OFF();
+    AUS();
     digitalWrite(WAR, HIGH);
     digitalWrite(ZWANZIG, HIGH);
     digitalWrite(VOR, HIGH);
   }
   else if ((localMin > 42) && (localMin < 45))
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(VIERTEL, HIGH);
@@ -227,7 +229,7 @@ void setLED(int localStunde, int localMin)
   }
   else if (localMin == 45)
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(VIERTEL, HIGH);
@@ -235,14 +237,14 @@ void setLED(int localStunde, int localMin)
   }
   else if ((localMin > 45) && (localMin < 47))
   {
-    OFF();
+    AUS();
     digitalWrite(WAR, HIGH);
     digitalWrite(VIERTEL, HIGH);
     digitalWrite(VOR, HIGH);
   }
   else if ((localMin >= 47) && (localMin < 50))
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(ZEHN_1, HIGH);
@@ -250,7 +252,7 @@ void setLED(int localStunde, int localMin)
   }
   else if (localMin == 50)
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(ZEHN_1, HIGH);
@@ -258,14 +260,14 @@ void setLED(int localStunde, int localMin)
   }
   else if ((localMin > 50) && (localMin < 52))
   {
-    OFF();
+    AUS();
     digitalWrite(WAR, HIGH);
     digitalWrite(ZEHN_1, HIGH);
     digitalWrite(VOR, HIGH);
   }
   else if ((localMin >= 52) && (localMin < 55))
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(FUENF_1, HIGH);
@@ -273,7 +275,7 @@ void setLED(int localStunde, int localMin)
   }
   else if (localMin == 55)
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(FUENF_1, HIGH);
@@ -281,14 +283,14 @@ void setLED(int localStunde, int localMin)
   }
   else if ((localMin > 55) && (localMin < 57))
   {
-    OFF();
+    AUS();
     digitalWrite(WAR, HIGH);
     digitalWrite(FUENF_1, HIGH);
     digitalWrite(VOR, HIGH);
   }
   else if ((localMin >= 57) && (localMin < 59))
   {
-    OFF();
+    AUS();
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(UHR, HIGH);
