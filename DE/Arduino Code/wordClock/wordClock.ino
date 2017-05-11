@@ -35,6 +35,9 @@
 #include "outputLED.h";
 #include "dcf77.h";
 
+int NightBegin;
+int NightEnd;
+
 void setRealClock() {
   getSignal();
   Serial.println(hh);
@@ -45,6 +48,9 @@ void setRealClock() {
   Serial.println(stunde);
   Serial.println(minute);
   Serial.println(sekunde);
+  
+  NightBegin = 23;
+  NightEnd = 5;
 }
 
 void setup(void) {
@@ -65,7 +71,7 @@ void loop(void) {
   //                                       WORDCLOCK VARIABLES
   // -------------------------------------------------------------------------------------------------
   rtcReadTime();
-  if ((stunde > NightBegin) || (stunde < NightEnd)) 
+  if ((stunde => NightBegin) || (stunde < NightEnd)) 
   { // Nachtschaltung
     NACHT();
   }
