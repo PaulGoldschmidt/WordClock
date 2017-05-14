@@ -64,14 +64,16 @@ void loop(void) {
   //                                       WORDCLOCK VARIABLES
   // -------------------------------------------------------------------------------------------------
   rtcReadTime();
-  if ((stunde >23) || (stunde<6)) 
+  if ((stunde >= 23) && (stunde <= 5))
   { // Nachtschaltung
-    OFF();
+    Serial.println("NACHT AKTIVIERT.");
+    Nacht();
   }
   else
   {
     setLED(stunde, minute);
   }
+  
   if ((stunde == 4) && (minute==0)) {
     Serial.println("suche DCF77 Signal und setze RTC Uhr");
     setRealClock();

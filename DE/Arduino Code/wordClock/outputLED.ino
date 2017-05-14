@@ -64,7 +64,11 @@ void OFF() {
   digitalWrite(ZWOELF, LOW);
   digitalWrite(UHR, LOW);
   analogWrite(MOSFET, MOSFET_Max);
+}
 
+void Nacht(){
+  Serial.println("Mosfet setzen auf 0."); 
+  analogWrite(7, 0);
 }
 
 void setLED(int localStunde, int localMin)
@@ -72,6 +76,7 @@ void setLED(int localStunde, int localMin)
   if (localMin == 0)
   {
     OFF();
+    Serial.println("IST JETZT UHR");
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(UHR, HIGH);
@@ -79,12 +84,14 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 0) && (localMin <= 3))
   {
     OFF();
+    Serial.println("WAR UHR");
     digitalWrite(WAR, HIGH);
     digitalWrite(UHR, HIGH);
   }
   else if ((localMin > 3) && (localMin < 5))
   {
     OFF();
+    Serial.println("IST GLEICH FÜNF NACH");
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(FUENF_1, HIGH);
@@ -93,6 +100,7 @@ void setLED(int localStunde, int localMin)
   else if (localMin == 5)
   {
     OFF();
+    Serial.println("IST JETZT FÜNF NACH");
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(FUENF_1, HIGH);
@@ -101,6 +109,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 5) && (localMin <= 7))
   {
     OFF();
+    Serial.println("WAR FÜNF NACH");
     digitalWrite(WAR, HIGH);
     digitalWrite(FUENF_1, HIGH);
     digitalWrite(NACH, HIGH);
@@ -108,6 +117,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 7) && (localMin < 10))
   {
     OFF();
+    Serial.println("IST GLEICH ZEHN NACH");
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(ZEHN_1, HIGH);
@@ -116,6 +126,7 @@ void setLED(int localStunde, int localMin)
   else if (localMin == 10)
   {
     OFF();
+    Serial.println("IST JETZT ZEHN NACH");
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(ZEHN_1, HIGH);
@@ -124,6 +135,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 10) && (localMin <= 12))
   {
     OFF();
+    Serial.println("WAR ZEHN NACH");
     digitalWrite(WAR, HIGH);
     digitalWrite(ZEHN_1, HIGH);
     digitalWrite(NACH, HIGH);
@@ -131,6 +143,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 12) && (localMin < 15))
   {
     OFF();
+    Serial.println("IST GLEICH VIERTEL NACH");
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(VIERTEL, HIGH);
@@ -139,6 +152,7 @@ void setLED(int localStunde, int localMin)
   else if (localMin == 15)
   {
     OFF();
+    Serial.println("IST JETZT VIERTEL NACH");
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(VIERTEL, HIGH);
@@ -147,6 +161,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 15) && (localMin <= 17))
   {
     OFF();
+    Serial.println("WAR VIERTEL NACH");
     digitalWrite(WAR, HIGH);
     digitalWrite(VIERTEL, HIGH);
     digitalWrite(NACH, HIGH);
@@ -154,6 +169,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 17) && (localMin < 20))
   {
     OFF();
+    Serial.println("IST GLEICH ZWANZIG NACH");
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(ZWANZIG, HIGH);
@@ -162,6 +178,7 @@ void setLED(int localStunde, int localMin)
   else if (localMin == 20)
   {
     OFF();
+    Serial.println("IST JETZT ZWANZIG NACH");
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(ZWANZIG, HIGH);
@@ -170,6 +187,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 20) && (localMin < 25))
   {
     OFF();
+    Serial.println("WAR ZWANZIG NACH");
     digitalWrite(WAR, HIGH);
     digitalWrite(ZWANZIG, HIGH);
     digitalWrite(NACH, HIGH);
@@ -177,6 +195,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin >= 25) && (localMin < 30))
   {
     OFF();
+    Serial.println("IST GLEICH HALB");
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(HALB, HIGH);
@@ -184,6 +203,7 @@ void setLED(int localStunde, int localMin)
   else if (localMin == 30)
   {
     OFF();
+    Serial.println("IST JETZT HALB");
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(HALB, HIGH);
@@ -191,12 +211,14 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 30) && (localMin <= 34))
   {
     OFF();
+    Serial.println("WAR HALB");
     digitalWrite(WAR, HIGH);
     digitalWrite(HALB, HIGH);
   }
   else if ((localMin >= 35) && (localMin < 40))
   {
     OFF();
+    Serial.println("IST GLEICH ZWANZIG VOR");
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(ZWANZIG, HIGH);
@@ -205,6 +227,7 @@ void setLED(int localStunde, int localMin)
   else if (localMin == 40)
   {
     OFF();
+    Serial.println("IST JETZT ZWANZIG VOR");
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(ZWANZIG, HIGH);
@@ -213,6 +236,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 40) && (localMin <= 42))
   {
     OFF();
+    Serial.println("WAR ZWANZIG VOR");
     digitalWrite(WAR, HIGH);
     digitalWrite(ZWANZIG, HIGH);
     digitalWrite(VOR, HIGH);
@@ -220,6 +244,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 42) && (localMin < 45))
   {
     OFF();
+    Serial.println("IST GLEICH VIERTEL VOR");
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(VIERTEL, HIGH);
@@ -228,6 +253,7 @@ void setLED(int localStunde, int localMin)
   else if (localMin == 45)
   {
     OFF();
+    Serial.println("IST JETZT VIERTEL VOR");
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(VIERTEL, HIGH);
@@ -236,6 +262,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin > 45) && (localMin < 47))
   {
     OFF();
+    Serial.println("WAR VIERTEL VOR");
     digitalWrite(WAR, HIGH);
     digitalWrite(VIERTEL, HIGH);
     digitalWrite(VOR, HIGH);
@@ -243,6 +270,7 @@ void setLED(int localStunde, int localMin)
   else if ((localMin >= 47) && (localMin < 50))
   {
     OFF();
+    Serial.println("IST GLEICH ZEHN VOR");
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(ZEHN_1, HIGH);
@@ -251,44 +279,24 @@ void setLED(int localStunde, int localMin)
   else if (localMin == 50)
   {
     OFF();
+    Serial.println("IST JETZT ZEHN VOR");
     digitalWrite(IST, HIGH);
     digitalWrite(JETZT, HIGH);
     digitalWrite(ZEHN_1, HIGH);
     digitalWrite(VOR, HIGH);
   }
-  else if ((localMin > 50) && (localMin < 52))
+  else if ((localMin > 50) && (localMin < 55))
   {
     OFF();
+    Serial.println("WAR ZEHN VOR");
     digitalWrite(WAR, HIGH);
     digitalWrite(ZEHN_1, HIGH);
     digitalWrite(VOR, HIGH);
   }
-  else if ((localMin >= 52) && (localMin < 55))
+  else if ((localMin >= 55) && (localMin < 59))
   {
     OFF();
-    digitalWrite(IST, HIGH);
-    digitalWrite(GLEICH, HIGH);
-    digitalWrite(FUENF_1, HIGH);
-    digitalWrite(VOR, HIGH);
-  }
-  else if (localMin == 55)
-  {
-    OFF();
-    digitalWrite(IST, HIGH);
-    digitalWrite(JETZT, HIGH);
-    digitalWrite(FUENF_1, HIGH);
-    digitalWrite(VOR, HIGH);
-  }
-  else if ((localMin > 55) && (localMin < 57))
-  {
-    OFF();
-    digitalWrite(WAR, HIGH);
-    digitalWrite(FUENF_1, HIGH);
-    digitalWrite(VOR, HIGH);
-  }
-  else if ((localMin >= 57) && (localMin < 59))
-  {
-    OFF();
+    Serial.println("IST GLEICH");
     digitalWrite(IST, HIGH);
     digitalWrite(GLEICH, HIGH);
     digitalWrite(UHR, HIGH);
