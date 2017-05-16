@@ -52,10 +52,8 @@ void setup(void) {
   Serial.begin(9600);
   // init RTC
   Wire.begin(); //Kommunikation über die Wire.h bibliothek beginnen.
-  initLED();
+  LEDInit();
   // init DCF77
-  DCF77Init(); 
-  setRealClock();
 }
 
 void loop(void) {
@@ -63,7 +61,6 @@ void loop(void) {
   // -------------------------------------------------------------------------------------------------
   //                                       WORDCLOCK VARIABLES
   // -------------------------------------------------------------------------------------------------
-  rtcReadTime();
   if ((stunde >= 23) && (stunde <= 5))
   { // Nachtschaltung
     Serial.println("NACHT AKTIVIERT.");
@@ -71,12 +68,7 @@ void loop(void) {
   }
   else
   {
+    rtcReadTime();  
     setLED(stunde, minute);
   }
-  
-  if ((stunde == 4) && (minute==0)) {
-    Serial.println("suche DCF77 Signal und setze RTC Uhr");
-    setRealClock();
-  }
-  delay(30000);
 }

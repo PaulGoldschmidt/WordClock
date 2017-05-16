@@ -6,7 +6,7 @@
 int MOSFET = 7;
 
 // Please define the value of the max. brightniss at 100 %. Number beetween 1 and 255.
-int MOSFET_Max = 200;
+int MOSFET_Max = 100;
 //------------------------------------------------------------------------------------------
 //                                 WordClock_Words
 //------------------------------------------------------------------------------------------
@@ -48,21 +48,21 @@ const int VIER = 38;
 // Word "FÜNF"
 const int FUENF_2 = 39;
 // Word "SECHS"
-const int SECHS = 40;
+const int SECHS = 43;
 // Word "SIEBEN"
 const int SIEBEN = 41;
 // Word "ACHT"
-const int ACHT = 42;
+const int ACHT = 40;
 // Word "NEUN"
-const int NEUN = 43;
+const int NEUN = 45;
 // Word "ZEHN"
-const int ZEHN_2 = 44;
+const int ZEHN_2 = 42;
 // Word "ELF"
-const int ELF = 45;
+const int ELF = 47;
 // Word "ZWÖLF"
 const int ZWOELF = 46;
 // Word "UHR"
-const int UHR = 47;
+const int UHR = 44;
 //
 // Creating "THE DEATH FUNCTION": This function will turn off all LEDs at the same time.
 //

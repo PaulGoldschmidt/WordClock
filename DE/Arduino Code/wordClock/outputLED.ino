@@ -26,17 +26,20 @@ void initLED() {
   pinMode(ZWOELF, OUTPUT);
   pinMode(UHR, OUTPUT);
   analogWrite(MOSFET, MOSFET_Max);
-  for (int i = 22; i < 48; i++)
-  {
-    Serial.println(i);
-    digitalWrite(i, HIGH);
-    delay(500);
-    digitalWrite(i, LOW);
-  }
-}
-
-void OFF() {
   delay(50);
+}
+void LEDInit() {
+  delay(50);
+  initLED();
+  Durchschieben();
+  delay(500);
+  Blinken();
+  Blinken();
+  Blinken();
+  Blinken();
+}
+void OFF() {
+  delay(500);
   digitalWrite(ES, HIGH);
   digitalWrite(IST, LOW);
   digitalWrite(WAR, LOW);
