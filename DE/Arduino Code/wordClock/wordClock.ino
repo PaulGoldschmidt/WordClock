@@ -61,8 +61,58 @@ void loop(void) {
   // -------------------------------------------------------------------------------------------------
   //                                       WORDCLOCK VARIABLES
   // -------------------------------------------------------------------------------------------------
-  if ((stunde >= 23) && (stunde <= 5))
+  if (stunde == 23)
   { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT.");
+    Nacht();
+  }
+  else if (stunde == 24)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT.");
+    Nacht();
+  }
+  else if (stunde == 0)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT.");
+    Nacht();
+  }
+  else if (stunde == 1)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT.");
+    Nacht();
+  }
+  else if (stunde == 2)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT.");
+    Nacht();
+  }
+  else if (stunde == 3)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT.");
+    Nacht();
+  }
+  else if (stunde == 4)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT.");
+    Nacht();
+  }
+  else if (stunde == 5)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT.");
+    Nacht();
+  }
+  else if (stunde == 5)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT.");
+    Nacht();
+  }
+    else if (stunde == 6)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT.");
+    Nacht();
+  }
+    else if (stunde == 7)
+    { // Nachtschaltung
     Serial.println("NACHT AKTIVIERT.");
     Nacht();
   }
