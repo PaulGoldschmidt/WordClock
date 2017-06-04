@@ -48,21 +48,21 @@ const int VIER = 38;
 // Word "FÜNF"
 const int FUENF_2 = 39;
 // Word "SECHS"
-const int SECHS = 43;
+const int SECHS = 40;
 // Word "SIEBEN"
 const int SIEBEN = 41;
 // Word "ACHT"
-const int ACHT = 40;
+const int ACHT = 42;
 // Word "NEUN"
-const int NEUN = 45;
+const int NEUN = 43;
 // Word "ZEHN"
-const int ZEHN_2 = 42;
+const int ZEHN_2 = 44;
 // Word "ELF"
-const int ELF = 47;
+const int ELF = 45;
 // Word "ZWÖLF"
 const int ZWOELF = 46;
 // Word "UHR"
-const int UHR = 44;
+const int UHR = 47;
 //
 // Creating "THE DEATH FUNCTION": This function will turn off all LEDs at the same time.
 //
