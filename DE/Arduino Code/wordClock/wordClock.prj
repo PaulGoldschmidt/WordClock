@@ -1,0 +1,27 @@
+[Project ID]
+	Signature=UE Proj: v.1
+[Project Information]
+	Use Relative Directory=1
+	Relative to Project File=1
+	Project Directory=M:\Programmierung\GitProjekte\myRepos\WordClockArduino\DE\Arduino Code\wordClock
+	Filter=
+	Include Sub Directories=1
+	Project Tagfile=
+	Project Wordfile=
+	Project TpFile=
+	Create Tagfile=0
+[Group]
+	0=Source
+	1=Bibliotheken
+[Files - Source]
+	0=wordClock.h
+	1=wordClock.ino
+	2=outputLED.h
+	3=outputLED.ino
+[Files - Bibliotheken]
+	0=dcf77.h
+	1=dcf77.ino
+	2=RTCModule.h
+	3=RTCModule.ino
+[Backup]
+	LastComment=

@@ -30,9 +30,9 @@
    The code is published under the GNU General Public License.
 */
 #include <Wire.h>
-#include "RTCModule.h";
-#include "outputLED.h";
-#include "dcf77.h";
+#include "RTCModule.h"
+#include "outputLED.h"
+#include "dcf77.h"
 
 void setRealClock() {
   getSignal();
@@ -66,17 +66,17 @@ void loop(void) {
   rtcReadTime();
   if ((stunde >= 23) && (stunde <= 5))
   { // Nachtschaltung
-    Serial.println("NACHT AKTIVIERT.");
     Nacht();
+    delay(600000);
   }
   else
   {
     setLED(stunde, minute);
+    delay(30000);
   }
   
-  if ((stunde == 4) && (minute==0)) {
+  /*if ((stunde == 4) && (minute==0)) {
     Serial.println("suche DCF77 Signal und setze RTC Uhr");
     setRealClock();
-  }
-  delay(30000);
+  }*/
 }

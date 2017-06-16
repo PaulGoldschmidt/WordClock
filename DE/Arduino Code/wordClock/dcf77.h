@@ -40,7 +40,7 @@
 #define BLINKPIN 13
 
 // Turn debugging on or off
-#define DCF_DEBUG 1
+#define DCF_DEBUG 0
 
 // Number of milliseconds to elapse before we assume a "1",
 // if we receive a falling flank before - its a 0.
