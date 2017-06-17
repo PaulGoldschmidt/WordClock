@@ -64,7 +64,7 @@ void loop(void) {
   //                                       WORDCLOCK VARIABLES
   // -------------------------------------------------------------------------------------------------
   rtcReadTime();
-  if ((stunde >= 23) && (stunde <= 5))
+  if ((stunde >= 23) || (stunde <= 7))
   { // Nachtschaltung
     Serial.println("NACHT AKTIVIERT.");
     Nacht();
