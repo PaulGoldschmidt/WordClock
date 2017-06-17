@@ -33,7 +33,6 @@
 #include "RTCModule.h";
 #include "outputLED.h";
 #include "dcf77.h";
-
 void setRealClock() {
   getSignal();
   Serial.println(hh);
@@ -52,31 +51,80 @@ void setup(void) {
   Serial.begin(9600);
   // init RTC
   Wire.begin(); //Kommunikation über die Wire.h bibliothek beginnen.
-  initLED();
+  LEDInit();
   // init DCF77
-  DCF77Init(); 
-  setRealClock();
 }
-
+void software_Reset() // Restarts program from beginning but does not reset the peripherals and registers
+  {
+    asm volatile ("jmp 0");  
+  } 
 void loop(void) {
 
   // -------------------------------------------------------------------------------------------------
   //                                       WORDCLOCK VARIABLES
   // -------------------------------------------------------------------------------------------------
-  rtcReadTime();
-  if ((stunde >= 23) || (stunde <= 7))
+  if (stunde == 23)
   { // Nachtschaltung
-    Serial.println("NACHT AKTIVIERT.");
+    Serial.println("NACHT AKTIVIERT. 23");
     Nacht();
+  }
+  else if (stunde == 24)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT. 24");
+    Nacht();
+  }
+  else if (stunde == 0)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT. 0");
+    Nacht();
+  Serial.println(hh);
+  Serial.println(mm);
+  Serial.println(ss);
+  rtcWriteTime(year, mon, day, hh, mm, ss);
+  rtcReadTime();
+  Serial.println(stunde);
+  Serial.println(minute);
+  Serial.println(sekunde);
+  }
+  else if (stunde == 1)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT. 1");
+    Nacht();
+  }
+  else if (stunde == 2)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT. 2");
+    Nacht();
+  }
+  else if (stunde == 3)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT. 3");
+    Nacht();
+  }
+  else if (stunde == 4)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT. 4");
+    Nacht();
+  }
+  else if (stunde == 5)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT. 5");
+    Nacht();
+    }
+    else if (stunde == 6)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT. 6");
+    Nacht();
+  }
+    else if (stunde == 7)
+    { // Nachtschaltung
+    Serial.println("NACHT AKTIVIERT. 7");
+    Nacht();
+    software_Reset;
   }
   else
   {
+    rtcReadTime();  
     setLED(stunde, minute);
-  }
-  
-  if ((stunde == 4) && (minute==0)) {
-    Serial.println("suche DCF77 Signal und setze RTC Uhr");
-    setRealClock();
-  }
-  delay(30000);
+  } 
 }

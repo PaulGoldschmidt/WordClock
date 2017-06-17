@@ -6,7 +6,7 @@
 int MOSFET = 7;
 
 // Please define the value of the max. brightniss at 100 %. Number beetween 1 and 255.
-int MOSFET_Max = 200;
+int MOSFET_Max = 100;
 //------------------------------------------------------------------------------------------
 //                                 WordClock_Words
 //------------------------------------------------------------------------------------------
