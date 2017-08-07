@@ -54,6 +54,7 @@ void Durchschieben(){
   delay(500);
   digitalWrite(UHR, HIGH);
   delay(500);
+   Serial.println("Effekt 1 Abgeschlossen...");
   //------------------------------------------
   digitalWrite(ES, LOW);
   delay(500);

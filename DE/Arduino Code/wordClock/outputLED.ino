@@ -1,4 +1,5 @@
 void initLED() {
+  pinMode(MOSFET, OUTPUT);
   pinMode(ES, OUTPUT);
   pinMode(IST, OUTPUT);
   pinMode(WAR, OUTPUT);

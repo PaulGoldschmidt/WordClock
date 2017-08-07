@@ -34,7 +34,7 @@
 //------------------------------------------------------------------------------------------
 //
 // Where is the DCF-Module connected to?
-#define DCF77PIN 2
+#define DCF77PIN A2
 
 // Not nessesary LED-Blink Pin.
 #define BLINKPIN 13
