@@ -1,7 +1,7 @@
 /**
                                                         VERSION 0.7, May 2017
    --------------------------------------------------------------------------
-                             WORDCLOCK Master
+                   WORDCLOCK Master Version - WORKSHOP EDITION
    ========================== GERMAN VERSION ================================
    --------------------------------------------------------------------------
    The WordClock Project.
@@ -14,16 +14,17 @@
    ambient light sensor:          N/A
         Resistance:               N/A
         MOSFET Type:              IRLZ44N
-   Fuse rated to:                 1.5 Ampere
+   Fuse rated to:                 N/A
    Voltage:                       5 Volt DC
+   LED VOLTAGE:                   12 Volt DC
 
 
    GERMAN VERSION
 
 
-   Copyright (C) 2017 by Paul Goldschmidt
+   Copyright CODE: (C) 2017 by Paul Goldschmidt
 
-
+____________________________________________________________________________________
    DCF77 translation by Mathias Dalheimer (md@gonium.net), Copyright (C) 2006.
    Website:
    https://gonium.net
@@ -33,6 +34,7 @@
 #include "RTCModule.h";
 #include "outputLED.h";
 #include "dcf77.h";
+
 
 void setRealClock() {
   getSignal();
@@ -54,10 +56,12 @@ void setup(void) {
   // init RTC
   Wire.begin(); //Kommunikation über die Wire.h bibliothek beginnen.
   Serial.println("Bitte warten...");
+  
   LEDInit();
   // init DCF77
   DCF77Init();
-  }
+  getSignal();
+}
 
 void loop(void) {
 
